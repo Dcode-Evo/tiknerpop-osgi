@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.dcode.tinkerpop</groupId>
+  <artifactId>tinkerpop-osgi</artifactId>
+  <version>2.6.0</version>
+  <packaging>pom</packaging>
+  
+  <modules>
+    <module>blueprints-core-osgi</module>
+    <module>pipes-osgi</module>
+    <module>gremlin-java-osgi</module>
+    <module>gremlin-groovy-osgi</module>
+    <module>features</module>
+  </modules>
+
+  <properties>
+    <tinkerpop.version>2.6.0</tinkerpop.version>
+    <osgi.import.packages>*</osgi.import.packages>
+    <osgi.export.packages>*</osgi.export.packages>
+    <osgi.private.packages></osgi.private.packages>
+    <osgi.symbolic.name>${project.groupId}.${project.artifactId}</osgi.symbolic.name>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <defaultGoal>install</defaultGoal>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.7</version>
+        <executions>
+          <execution>
+            <id>filter</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>resources</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>2.1.0</version>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>${osgi.symbolic.name}</Bundle-SymbolicName>
+            <Export-Package>${osgi.export.packages}</Export-Package>
+            <Import-Package>${osgi.import.packages}</Import-Package>
+            <Private-Package>${osgi.private.packages}</Private-Package>
+            <_versionpolicy>[$(version;==;$(@)),$(version;+;$(@)))</_versionpolicy>
+            <_removeheaders>Ignore-Package,Include-Resource,Private-Package,Embed-Dependency</_removeheaders>
+          </instructions>
+          <unpackBundle>true</unpackBundle>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

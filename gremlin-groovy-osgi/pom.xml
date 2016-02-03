@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.dcode.tinkerpop</groupId>
+    <artifactId>parent</artifactId>
+    <version>2.6.0</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  
+  <groupId>com.dcode.tinkerpop.gremlin</groupId>
+  <artifactId>gremlin-groovy-osgi</artifactId>
+  <packaging>bundle</packaging>
+  
+  <name>Gremlin-Groovy: Gremlin for the Groovy Language</name>
+
+  <properties>
+    <tinkerpop.version>2.6.0</tinkerpop.version>
+    <osgi.import.packages>
+      com.tinkerpop.blueprints;version="[2.6,3)",
+      com.tinkerpop.pipes*;version="[2.6,3)",
+      *
+    </osgi.import.packages>
+    <osgi.export.packages>com.tinkerpop.gremlin*;version="2.6.0"</osgi.export.packages>
+    <osgi.symbolic.name>com.tinkerpop.gremlin.groovy.osgi</osgi.symbolic.name>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>com.tinkerpop.gremlin</groupId>
+      <artifactId>gremlin-groovy</artifactId>
+      <version>${tinkerpop.version}</version>
+    </dependency>
+  </dependencies>
+
+     <build>
+        <defaultGoal>install</defaultGoal>
+        <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>1.1</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>shade</goal>
+                    </goals>
+                    <configuration>
+                        <artifactSet>
+                            <includes>
+                                <include>com.tinkerpop.gremlin:gremlin-groovy</include>
+                            </includes>
+                        </artifactSet>
+                        <filters>
+                            <filter>
+                                <artifact>com.tinkerpop.gremlin:gremlin-groovy</artifact>
+                                <excludes>
+                                    <exclude>**</exclude>
+                                </excludes>
+                            </filter>
+                        </filters>
+                        <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
+                        <createDependencyReducedPom>true</createDependencyReducedPom>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+      </plugins>
+    </build>
+</project>
