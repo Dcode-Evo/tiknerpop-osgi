@@ -5,12 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.dcode.tinkerpop</groupId>
-    <artifactId>parent</artifactId>
+    <artifactId>tinkerpop-osgi</artifactId>
     <version>2.6.0</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
-  
-  <groupId>com.dcode.tinkerpop</groupId>
+
   <artifactId>features</artifactId>
   <packaging>pom</packaging>  
 
