@@ -1,30 +1,30 @@
-<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="tinkerpop" start-level="40">
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="tinkerpop">
   <feature name="tinkerpop-blueprints" version="2.6.0">
-    <bundle>mvn:commons-lang/commons-lang/2.6</bundle>
-    <bundle>mvn:commons-collections/commons-collections/3.2.1</bundle>
-    <bundle>mvn:commons-digester/commons-digester/2.1</bundle>
-    <bundle>mvn:commons-jxpath/commons-jxpath/1.3</bundle>
-    <bundle>mvn:javax.mail/mail/1.4.7</bundle>
-    <bundle>mvn:commons-configuration/commons-configuration/1.6</bundle>
-    <bundle>mvn:commons-beanutils/commons-beanutils/1.9.1</bundle>
-    <bundle>mvn:commons-codec/commons-codec/1.9</bundle>
-    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jdom/2.0.2_1</bundle>
-    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jdom/1.1_4</bundle>
-    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.ant/1.9.3_1</bundle>
-    <bundle>mvn:com.dcode.tinkerpop.blueprints/blueprints-core-osgi/2.6.0</bundle>
+    <bundle start-level="40">mvn:commons-lang/commons-lang/2.6</bundle>
+    <bundle start-level="40">mvn:commons-collections/commons-collections/3.2.1</bundle>
+    <bundle start-level="40">mvn:commons-digester/commons-digester/2.1</bundle>
+    <bundle start-level="40">mvn:commons-jxpath/commons-jxpath/1.3</bundle>
+    <bundle start-level="40">mvn:javax.mail/mail/1.4.7</bundle>
+    <bundle start-level="40">mvn:commons-configuration/commons-configuration/1.6</bundle>
+    <bundle start-level="40">mvn:commons-beanutils/commons-beanutils/1.9.1</bundle>
+    <bundle start-level="40">mvn:commons-codec/commons-codec/1.9</bundle>
+    <bundle start-level="40">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jdom/2.0.2_1</bundle>
+    <bundle start-level="40">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jdom/1.1_4</bundle>
+    <bundle start-level="40">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.ant/1.9.3_1</bundle>
+    <bundle start-level="40">mvn:com.dcode.tinkerpop.blueprints/blueprints-core-osgi/2.6.0</bundle>
   </feature>
   
-  <feature name="tinkerpop-gremlin-java" version="2.6.0" start-level="40">
+  <feature name="tinkerpop-gremlin-java" version="2.6.0">
     <feature>tinkerpop-blueprints</feature>
-    <bundle>mvn:com.dcode.tinkerpop/pipes-osgi/2.6.0</bundle>
-    <bundle>mvn:com.dcode.tinkerpop.gremlin/gremlin-java-osgi/2.6.0</bundle>
+    <bundle start-level="40">mvn:com.dcode.tinkerpop/pipes-osgi/2.6.0</bundle>
+    <bundle start-level="40">mvn:com.dcode.tinkerpop.gremlin/gremlin-java-osgi/2.6.0</bundle>
   </feature>
   
-  <feature name="tinkerpop-gremlin-groovy" version="2.6.0" start-level="40">
+  <feature name="tinkerpop-gremlin-groovy" version="2.6.0">
     <feature>tinkerpop-blueprints</feature>
     <feature>tinkerpop-gremlin-java</feature>
-    <bundle>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.scripting-api-1.0/2.2.0</bundle>
-    <bundle>mvn:org.codehaus.groovy/groovy-all/1.8.9</bundle>
-    <bundle>mvn:com.dcode.tinkerpop.gremlin/gremlin-groovy-osgi/2.6.0</bundle>
+    <bundle start-level="40">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.scripting-api-1.0/2.2.0</bundle>
+    <bundle start-level="40">mvn:org.codehaus.groovy/groovy-all/1.8.9</bundle>
+    <bundle start-level="40">mvn:com.dcode.tinkerpop.gremlin/gremlin-groovy-osgi/2.6.0</bundle>
   </feature>
 </features>
